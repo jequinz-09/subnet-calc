@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subnet Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Subnet Calculator</h1>
+
+    <!-- Input area -->
+    <form id="subnet-form">
+      <label for="cidr-input">IP address / prefix</label>
+      <input type="text" id="cidr-input" placeholder="192.168.1.0/24" autocomplete="off" required>
+      <button type="submit">Calculate</button>
+    </form>
+
+    <!-- Error area: empty until something goes wrong -->
+    <p id="error" class="error" role="alert"></p>
+
+    <!-- Results area -->
+    <section id="results">
+      <h2>Results</h2>
+      <dl>
+        <dt>Network address</dt>
+        <dd id="network">–</dd>
+
+        <dt>Broadcast address</dt>
+        <dd id="broadcast">–</dd>
+
+        <dt>First usable host</dt>
+        <dd id="first-host">–</dd>
+
+        <dt>Last usable host</dt>
+        <dd id="last-host">–</dd>
+
+        <dt>Total usable hosts</dt>
+        <dd id="host-count">–</dd>
+      </dl>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
