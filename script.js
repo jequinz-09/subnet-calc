@@ -58,9 +58,14 @@ function calculateSubnet(ip, prefix) {
     usableHosts = totalAddresses - 2;
   }
 
+  // The next network starts right after this one's broadcast address.
+  // If the broadcast is 255.255.255.255 there is nothing after it (end of IPv4 space).
+  const nextNetwork = broadcast === 0xFFFFFFFF ? "None (end of address space)" : intToIp(broadcast + 1);
+
   return {
     network: intToIp(network),
     broadcast: intToIp(broadcast),
+    nextNetwork: nextNetwork,
     mask: intToIp(mask),
     firstHost: intToIp(firstHost),
     lastHost: intToIp(lastHost),
@@ -110,6 +115,7 @@ const errorBox = document.getElementById("error");
 function showResults(results) {
   document.getElementById("network").textContent = results.network;
   document.getElementById("broadcast").textContent = results.broadcast;
+  document.getElementById("next-network").textContent = results.nextNetwork;
   document.getElementById("first-host").textContent = results.firstHost;
   document.getElementById("last-host").textContent = results.lastHost;
   // toLocaleString adds thousands separators: 4294967294 -> "4,294,967,294"
@@ -118,7 +124,7 @@ function showResults(results) {
 
 // Put the "–" placeholders back so old results don't sit next to a new error.
 function clearResults() {
-  for (const id of ["network", "broadcast", "first-host", "last-host", "host-count"]) {
+  for (const id of ["network", "broadcast", "next-network", "first-host", "last-host", "host-count"]) {
     document.getElementById(id).textContent = "–";
   }
 }

@@ -9,7 +9,7 @@ A small browser tool that takes an IPv4 address in CIDR notation (like `192.168.
 
 ## Features
 - Enter any IPv4 address with a prefix from `/0` to `/32`
-- Shows network address, broadcast address, first and last usable host, and total usable hosts
+- Shows network address, broadcast address, next network address, first and last usable host, and total usable hosts
 - Handles the edge cases: `/31` point-to-point links (RFC 3021) and `/32` single hosts
 - Clear error messages for invalid input (bad octets, missing slash, prefix out of range)
 
