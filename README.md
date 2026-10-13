@@ -2,7 +2,7 @@
 
 A small browser tool that takes an IPv4 address in CIDR notation (like `192.168.1.0/24`) and shows the network address, broadcast address, usable host range and host count. Built for networking students who want to check their subnetting by hand.
 
-**Live demo:** _coming soon (GitHub Pages)_
+**Live demo:** https://subnet-calc-jerome.vercel.app
 
 <!-- Add a screenshot: save it as docs/screenshot.png, then uncomment the next line -->
 <!-- ![Subnet Calculator screenshot](docs/screenshot.png) -->
